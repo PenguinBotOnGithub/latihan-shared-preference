@@ -104,21 +104,16 @@ public class LoginActivity extends AppCompatActivity {
                 if (res != null) {
                     try {
                         jsonResponse = new JSONObject(res);
+                        boolean status = jsonResponse.getBoolean("status");
+                        String toastMessage = jsonResponse.getString("message");
+                        toastMessage(toastMessage);
+
+                        if (status) {
+                            goToProfileActivity();
+                        }
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
                     }
-                }
-
-                try {
-                    boolean status = jsonResponse.getBoolean("status");
-                    String toastMessage = jsonResponse.getString("message");
-                    toastMessage(toastMessage);
-
-                    if (status) {
-                        goToProfileActivity();
-                    }
-                } catch (JSONException e) {
-                    throw new RuntimeException(e);
                 }
             }
 

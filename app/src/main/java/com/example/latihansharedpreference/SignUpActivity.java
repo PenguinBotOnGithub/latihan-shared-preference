@@ -107,10 +107,6 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 progressDialog.dismiss();
-//                boolean status = response.body().isStatus();
-//                toastMessage(response.body().getMessage());
-//                if(status)
-//                    goToLoginActivity();
             }
 
             @Override
